@@ -1,16 +1,125 @@
-/*
-Polices
-*/
+/* Polices */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @font-face {
     font-family: 'Perfume';
     src: url(../fonts/Perfume\ Sans\ 2\ Medium.otf);
 }
 
-:root {
-    --bleu_logo : #25A5E2;
-    --noir_logo : #212529;
-    --blanc_logo : #FEFEFE;
-    --bleu-logo2 : #1C4769;
-    --rose_logo : #E10098;
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
 }
+
+:root {
+    --bleu_logo: #25A5E2;
+    --noir_logo: #212529;
+    --blanc_logo: #FEFEFE;
+    --bleu-logo2: #1C4769;
+    --rose_logo: #E10098;
+}
+
+@media screen and (min-width:670px) {
+    nav .logoP{
+        display: none;
+    }
+
+    .liens{
+        display: none;
+    }
+    
+}
+@media screen and (max-width:670px) {
+    nav .logoG{
+        display: none;
+    }
+    
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E10098;
+    padding: 10px 20px;
+    height: 45px; 
+    position: relative;
+}
+
+nav .logoP {
+    width: 45px;
+}
+
+
+.menu {
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+}
+
+.cercle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.haut, .milieu, .bas {
+    position: absolute;
+    width: 25px;
+    height: 4px;
+    background: var(--noir_logo);
+}
+
+.haut {
+    top: 10px;
+}
+
+.milieu {
+    top: 17px;
+}
+
+.bas {
+    bottom: 10px;
+}
+.liens{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #E10098;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+}
+.liens a {
+    font-family: "Perfume";
+    text-decoration: none;
+    color: white    ;
+    font-size: 24px;
+}
+
+.cercle.active{
+    background: #E10098
+
+
+}
+.haut.active{
+    background-color: #FEFEFE;
+}
+.milieu.active{
+    background-color: #FEFEFE;
+}
+.bas.active{
+    background-color: #FEFEFE;
+}
+}
+
