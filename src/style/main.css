@@ -1,3 +1,12 @@
+/*
+Polices
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@font-face {
+    font-family: 'Perfume';
+    src: url(../fonts/Perfume\ Sans\ 2\ Medium.otf);
+}
+
 :root {
     --bleu_logo : #25A5E2;
     --noir_logo : #212529;
