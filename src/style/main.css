@@ -1,16 +1,54 @@
-/*
-Polices
-*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @font-face {
-    font-family: 'Perfume';
-    src: url(../fonts/Perfume\ Sans\ 2\ Medium.otf);
+  font-family: "Perfume";
+  src: url(../fonts/Perfume\ Sans\ 2\ Medium.otf);
 }
 
 :root {
-    --bleu_logo : #25A5E2;
-    --noir_logo : #212529;
-    --blanc_logo : #FEFEFE;
-    --bleu-logo2 : #1C4769;
-    --rose_logo : #E10098;
+  --bleu_logo: #25a5e2;
+  --noir_logo: #212529;
+  --blanc_logo: #fefefe;
+  --bleu-logo2: #1c4769;
+  --rose_logo: #e10098;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 4%;
+  margin: 10px auto;
+  border: 2px solid black;
+  border-radius: 100px;
+  max-width: 1000px;
+  box-shadow: 0 5px 10px -5px #212529;
+}
+
+header .logo img {
+  height: 70px;
+  cursor: pointer;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  font-family: "Perfume";
+  font-size: xx-large;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #212529;
+}
+
+
+header nav ul li a:hover{
+    color: #25a5e2;
+}
+
+header nav ul li a:active {
+    color: #e10098;
 }
