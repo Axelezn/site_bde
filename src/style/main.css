@@ -14,3 +14,45 @@ Polices
     --bleu-logo2 : #1C4769;
     --rose_logo : #E10098;
 }
+
+/*Header Desktop*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 4%;
+    margin: 10px auto;
+    border: 2px solid black;
+    border-radius: 100px;
+    max-width: 1000px;
+    box-shadow: 0 5px 10px -5px #212529;
+  }
+  
+  header .logo img {
+    height: 70px;
+    cursor: pointer;
+  }
+  
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    font-family: "Perfume";
+    font-size: xx-large;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav ul li a {
+    text-decoration: none;
+    color: #212529;
+  }
+  
+  
+  header nav ul li a:hover{
+      color: #25a5e2;
+  }
+  
+  header nav ul li a:active {
+      color: #e10098;
+  }
