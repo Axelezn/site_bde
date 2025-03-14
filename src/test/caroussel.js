@@ -3,6 +3,7 @@ let i = 1;
 
 setInterval(() => {
 // Accessing All the carousel Items
+//Test du wehbook discord
  Array.from(carouselItems).forEach((item,index) => {
 
    if(i < carouselItems.length){
