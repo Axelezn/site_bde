@@ -1,0 +1,197 @@
+/*
+Polices
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@font-face {
+    font-family: 'Perfume';
+    src: url(../fonts/Perfume\ Sans\ 2\ Medium.otf);
+}
+
+:root {
+    --bleu_logo : #25A5E2;
+    --noir_logo : #212529;
+    --blanc_logo : #FEFEFE;
+    --bleu-logo2 : #1C4769;
+    --rose_logo : #E10098;
+}
+
+/*Header Desktop*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 4%;
+    margin: 10px auto;
+    border: 2px solid black;
+    border-radius: 100px;
+    max-width: 1000px;
+    box-shadow: 0 5px 10px -5px #212529;
+}
+
+header .logo img {
+    height: 70px;
+    cursor: pointer;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    font-family: "Perfume";
+    font-size: xx-large;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #212529;
+}
+
+
+header nav ul li a:hover{
+    color: #25a5e2;
+}
+
+header nav ul li a:active {
+    color: #e10098;
+}
+
+/* Styles pour la version mobile (largeur inférieure à 768px par exemple) */
+@media (max-width: 767px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        background-color: var(--blanc_logo);
+    }
+
+    header.mobile-menu nav {
+        display: none; /* Cacher la navigation par défaut en mobile */
+        position: absolute;
+        top: 70px; /* Ajuster en fonction de la hauteur de votre header mobile */
+        left: 0;
+        background-color: var(--noir_logo); /* Couleur de fond de votre menu burger */
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+    }
+
+    header.mobile-menu nav.open {
+        display: block; /* Afficher la navigation quand la classe 'open' est ajoutée */
+    }
+
+    header.mobile-menu nav ul {
+        padding: 20px 0;
+        margin: 0;
+        list-style: none;
+        display: flex; /* Conserver flex pour centrer les éléments individuellement */
+        flex-direction: column; /* Afficher les éléments en colonne */
+        align-items: center; /* Centrer les éléments horizontalement */
+    }
+
+    header.mobile-menu nav ul li {
+        padding: 10px 0; /* Réduire le padding vertical */
+        width: 100%; /* Pour que chaque élément prenne toute la largeur disponible */
+    }
+
+    header.mobile-menu nav ul li a {
+        color: var(--blanc_logo);
+        text-decoration: none;
+        font-size: large; /* Réduire la taille de la police */
+        display: block; /* Pour que le lien remplisse toute la largeur du li et soit cliquable facilement */
+        padding: 10px 0; /* Ajouter un peu de padding vertical aux liens */
+    }
+
+    header.mobile-menu nav ul li a:hover {
+        color: var(--bleu_logo);
+    }
+
+    header.mobile-menu nav ul li a:active {
+        color: var(--rose_logo);
+    }
+
+    .burger-menu {
+        font-size: 30px;
+        cursor: pointer;
+        color: var(--noir_logo);
+        padding: 5px;
+    }
+
+    header .logo img {
+        height: 50px;
+    }
+}
+
+/* Styles pour la version desktop (largeur supérieure ou égale à 768px) */
+@media (min-width: 768px) {
+    .burger-menu {
+        display: none;
+    }
+
+    header.mobile-menu {
+        background-color: transparent;
+        padding: 5px 4%;
+        border-radius: 100px;
+        border: 2px solid black;
+        box-shadow: 0 5px 10px -5px #212529;
+        margin: 10px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header.mobile-menu nav {
+        display: block !important;
+        position: static;
+        background-color: transparent;
+        width: auto;
+        text-align: left;
+    }
+
+    header.mobile-menu nav ul {
+        display: flex;
+        gap: 50px;
+        font-size: xx-large;
+        padding: 0;
+    }
+}
+/* Styles pour la version desktop (largeur supérieure ou égale à 768px) */
+@media (min-width: 768px) {
+    .burger-menu {
+        display: none; /* Cacher le bouton burger en desktop */
+    }
+
+    header.mobile-menu {
+        /* On s'assure que les styles spécifiques au mobile sont retirés en desktop */
+        background-color: transparent;
+        padding: 5px 4%;
+        border-radius: 100px;
+        border: 2px solid black;
+        box-shadow: 0 5px 10px -5px #212529;
+        margin: 10px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header.mobile-menu nav {
+        display: block !important; /* S'assurer que la navigation est visible en desktop */
+        position: static;
+        background-color: transparent;
+        width: auto;
+        text-align: left;
+    }
+
+    header.mobile-menu nav ul {
+        display: flex;
+        gap: 50px;
+        font-size: xx-large;
+        padding: 0;
+    }
+}

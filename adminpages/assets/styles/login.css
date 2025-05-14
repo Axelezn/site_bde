@@ -1,0 +1,178 @@
+body {
+    background-color: #f4f4f4;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: #333;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 400px;
+    transition: box-shadow 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .login-container {
+        max-width: 600px;
+        padding: 60px;
+        border-radius: 15px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+        font-size: 128px; /* Logo plus grand sur PC */
+        margin-bottom: 40px;
+    }
+
+    .logo img {
+        max-width: 120px; /* Image du logo plus grande sur PC */
+        margin-right: 20px;
+    }
+
+    .connection-title {
+        font-size: 60px; /* Titre plus grand sur PC */
+        margin-bottom: 40px;
+    }
+
+    .form-group label {
+        font-size: 45px; /* Labels plus grands sur PC */
+        margin-bottom: 10px;
+    }
+
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        padding: 16px; /* Inputs plus grands sur PC */
+        font-size: 18px;
+    }
+
+    .login-button {
+        padding: 18px 24px; /* Bouton plus grand sur PC */
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    .register-link {
+        font-size: 18px; /* Lien d'inscription plus grand sur PC */
+        margin-top: 35px;
+    }
+}
+
+.logo {
+    font-size: 58px;
+    font-weight: bold;
+    color: #24a4e4;
+    margin-bottom: 30px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    max-width: 200px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.connection-title {
+    font-size: 60px;
+    color: #e1049a;
+    margin-bottom: 35px;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: #24a4e4;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(36, 164, 228, 0.25);
+}
+
+.login-button {
+    background-color: #e1049a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 25px;
+}
+
+.login-button:hover {
+    background-color: #24a4e4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(36, 164, 228, 0.35);
+}
+
+.register-link {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+}
+
+.register-link a {
+    color: #24a4e4;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+p[style='color:red;'] {
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+}
