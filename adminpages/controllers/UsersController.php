@@ -1,49 +1,56 @@
-<?php 
+<?php
 
-require_once __DIR__ . '/../models/User.php';
+require_once __DIR__ . '/../config/database.php';
 
-class UsersController {
-    private $userModel;
+class UsersController
+{
+    private $db;
 
-    public function __construct() {
-        $this->userModel = new User();
-    }
-    public function signup() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = [
-                'prenom' => $_POST['prenom'],
-                'email' => $_POST['email'],
-                'mdp' => password_hash($_POST['mdp'], PASSWORD_DEFAULT)
-            ];
-
-            if ($this->userModel->register($data)) {
-                $user = $this->userModel->login($data['email']);
-                $_SESSION['user'] = $user;
-                header("Location: views/home.php");
-                exit();
-            } else {
-                $error = "Erreur lors de l'inscription.";
-            }
+    public function __construct()
+    {
+        $database = new Database();
+        $this->db = $database->getConnection();
+        if (!$this->db) {
+            die("Erreur de connexion à la base de données dans le contrôleur Users.");
         }
-
-        require __DIR__ . '/../views/auth/signup.php';
     }
-     public function signin() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $mdp = $_POST['mdp'];
 
-            $user = $this->userModel->login($email);
+    public function signup()
+    {
+        // ... (ta logique d'inscription)
+    }
+
+    public function signin()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'] ?? '';
+            $mdp = $_POST['mdp'] ?? '';
+
+            // Validation de l'email et du mot de passe (à adapter selon tes besoins)
+            if (empty($email) || empty($mdp)) {
+                $error = "Veuillez entrer votre email et votre mot de passe.";
+                require __DIR__ . '/../views/signin.php';
+                return;
+            }
+
+            // Requête pour récupérer l'utilisateur par email
+            $stmt = $this->db->prepare("SELECT id, email, mdp FROM Users WHERE email = ?");
+            $stmt->execute([$email]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user && password_verify($mdp, $user['mdp'])) {
-                $_SESSION['user'] = $user;
-                header("Location: views/home.php");
+                // Authentification réussie
+                $_SESSION['user'] = $user; // Stocke les informations de l'utilisateur en session
+                header('Location: /adminpages/index.php?action=home'); // Redirige vers la page d'accueil
                 exit();
             } else {
-                $error = "Identifiants incorrects.";
+                $error = "Email ou mot de passe incorrect.";
+                require __DIR__ . '/../views/signin.php';
+                return;
             }
+        } else {
+            // Si la requête n'est pas un POST, affiche le formulaire de connexion
+            require __DIR__ . '/../views/auth/signin.php';
         }
-
-        require __DIR__ . '/../views/auth/signin.php';
     }
 }

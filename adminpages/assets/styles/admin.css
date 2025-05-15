@@ -1,0 +1,263 @@
+/*
+* Styles pour la page d'accueil (mobile-first) - Délimitations des sections
+*/
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #e1049a;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Partie Comptes */
+.comptes-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+
+.comptes-section h2 {
+    color: #24a4e4;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.comptes-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.comptes-section th,
+.comptes-section td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.comptes-section th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.comptes-section p {
+    color: #555;
+    font-size: 16px;
+    text-align: center;
+}
+
+.comptes-section .button {
+    background-color: #e1049a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    margin-top: 15px; /* Marge au-dessus du bouton */
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.comptes-section .button:hover {
+    background-color: #24a4e4;
+}
+
+/* Partie Dernières Transactions */
+.transactions-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+
+.transactions-section h2 {
+    color: #24a4e4;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.transactions-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactions-section th,
+.transactions-section td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.transactions-section th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.transactions-section p {
+    color: #555;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Partie Gérer les Transactions */
+.gerer-transactions-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+
+.gerer-transactions-section h2 {
+    color: #24a4e4;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.gerer-transactions-section .buttons-container {
+    display: flex;
+    flex-direction: column; /* Boutons empilés sur mobile */
+    gap: 10px; /* Espacement entre les boutons */
+}
+
+.gerer-transactions-section .buttons-container a.button {
+    background-color: #e1049a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.gerer-transactions-section .buttons-container a.button.secondary {
+    background-color: #f4f4f4;
+    color: #555;
+    border: 1px solid #ccc;
+}
+
+.gerer-transactions-section .buttons-container a.button:hover {
+    background-color: #24a4e4;
+}
+
+.gerer-transactions-section .buttons-container a.button.secondary:hover {
+    background-color: #ddd;
+}
+
+.logout-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logout-button-container a.button.secondary {
+    background-color: #f4f4f4;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button-container a.button.secondary:hover {
+    background-color: #ddd;
+}
+
+.error-message,
+.success-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Styles pour les écrans plus grands */
+@media (min-width: 768px) {
+    .container {
+        max-width: 960px;
+        padding: 30px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .comptes-section h2,
+    .transactions-section h2,
+    .gerer-transactions-section h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .gerer-transactions-section .buttons-container {
+        flex-direction: row; /* Boutons en ligne sur grand écran */
+        align-items: center;
+        gap: 15px;
+    }
+
+    .gerer-transactions-section .buttons-container a.button {
+        display: inline-block;
+        width: auto;
+        margin-right: 0; /* Supprime la marge à droite sur grand écran */
+    }
+
+    .logout-button-container {
+        text-align: right; /* Aligne le bouton de déconnexion à droite sur grand écran */
+        margin-top: 30px;
+    }
+}
