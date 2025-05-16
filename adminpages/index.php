@@ -67,6 +67,43 @@ switch ($action) {
     case 'effectuer_transfert':
         $transactionController->effectuerTransfert();
         break;
+    // Nouvelles actions pour la gestion des utilisateurs BDE
+    case 'gestion_bde_utilisateurs':
+        $homeController->afficherListeBdeUtilisateurs();
+        break;
+    case 'afficher_formulaire_modification_bde_utilisateur':
+        $id = $_GET['id'] ?? null;
+        $homeController->afficherFormulaireModificationBdeUtilisateur($id);
+        break;
+    case 'modifier_bde_utilisateur':
+        $id = $_GET['id'] ?? null;
+        $homeController->modifierBdeUtilisateur($id);
+        break;
+    case 'supprimer_bde_utilisateur':
+        $id = $_GET['id'] ?? null;
+        $homeController->supprimerBdeUtilisateur($id);
+        break;
+         case 'gestion_bde_utilisateurs':
+        $homeController->afficherListeBdeUtilisateurs();
+        break;
+    case 'afficher_formulaire_modification_bde_utilisateur':
+        $id = $_GET['id'] ?? null;
+        $homeController->afficherFormulaireModificationBdeUtilisateur($id);
+        break;
+    case 'modifier_bde_utilisateur':
+        $id = $_GET['id'] ?? null;
+        $homeController->modifierBdeUtilisateur($id);
+        break;
+    case 'supprimer_bde_utilisateur':
+        $id = $_GET['id'] ?? null;
+        $homeController->supprimerBdeUtilisateur($id);
+        break;
+    case 'afficher_formulaire_creation_utilisateur_admin': // Nouvelle action
+        $homeController->afficherFormulaireCreationUtilisateurAdmin();
+        break;
+    case 'creer_utilisateur_admin': // Nouvelle action
+        $homeController->creerUtilisateurAdmin();
+        break;
     default:
         http_response_code(404);
         echo 'Page non trouvée';

@@ -5,82 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de Bord - BDE ADMIN</title>
     <link rel="stylesheet" href="/../adminpages/assets/styles/admin.css">
-    <style>
-        .error-message {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            padding: 10px;
-            margin-bottom: 15px;
-            cursor: pointer;
-        }
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            padding: 10px;
-            margin-bottom: 15px;
-            cursor: pointer;
-        }
-    </style>
 </head>
-<body style="background-color: #f4f4f4; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: #333;">
+<body>
     <div class="container">
         <h1 class="home-title">Tableau de Bord de l'Administration du BDE</h1>
 
-        <?php if (isset($_GET['error']) && $_GET['error'] === 'solde_insuffisant'): ?>
+        <?php
+        $messages = [
+            'solde_insuffisant' => 'Solde insuffisant pour effectuer le débit.',
+            'erreur_transaction' => 'Erreur lors de l\'enregistrement de la transaction.',
+            'erreur_solde' => 'Erreur lors de la mise à jour du solde du compte.',
+            'compte_introuvable' => 'Le compte sélectionné est introuvable.',
+            'donnees_credit_invalides' => 'Les données de crédit sont invalides. Veuillez vérifier le montant.',
+            'donnees_debit_invalides' => 'Les données de débit sont invalides. Veuillez vérifier le montant.',
+            'donnees_transfert_invalides' => 'Les données de transfert sont invalides. Veuillez vérifier les comptes et le montant.',
+            'transfert_effectue' => 'Le transfert a été effectué avec succès.',
+            'credit_effectue' => 'Le crédit a été effectué avec succès.',
+            'debit_effectue' => 'Le débit a été effectué avec succès.',
+            'compte_modifie' => 'Le compte a été modifié avec succès.',
+            'utilisateur_cree' => 'L\'utilisateur a été créé avec succès.',
+            'utilisateur_modifie' => 'L\'utilisateur a été modifié avec succès.',
+            'utilisateur_supprime' => 'L\'utilisateur a été supprimé avec succès.',
+            'erreur_creation_utilisateur' => 'Erreur lors de la création de l\'utilisateur.',
+            'erreur_modification_utilisateur' => 'Erreur lors de la modification de l\'utilisateur.',
+            'erreur_suppression_utilisateur' => 'Erreur lors de la suppression de l\'utilisateur.',
+            'methode_non_autorisee' => 'Méthode non autorisée.',
+        ];
+
+        if (isset($_GET['error']) && isset($messages[$_GET['error']])): ?>
             <div class="error-message" onclick="this.style.display='none';">
-                Solde insuffisant pour effectuer le débit. (Cliquez pour fermer)
+                <?= htmlspecialchars($messages[$_GET['error']]) ?> (Cliquez pour fermer)
             </div>
-        <?php endif; ?>
-        <?php if (isset($_GET['error']) && $_GET['error'] === 'erreur_transaction'): ?>
-            <div class="error-message" onclick="this.style.display='none';">
-                Erreur lors de l'enregistrement de la transaction. (Cliquez pour fermer)
-            </div>
-        <?php endif; ?>
-        <?php if (isset($_GET['error']) && $_GET['error'] === 'erreur_solde'): ?>
-            <div class="error-message" onclick="this.style.display='none';">
-                Erreur lors de la mise à jour du solde du compte. (Cliquez pour fermer)
-            </div>
-        <?php endif; ?>
-        <?php if (isset($_GET['error']) && $_GET['error'] === 'compte_introuvable'): ?>
-            <div class="error-message" onclick="this.style.display='none';">
-                Le compte sélectionné est introuvable. (Cliquez pour fermer)
-            </div>
-        <?php endif; ?>
-        <?php if (isset($_GET['error']) && $_GET['error'] === 'donnees_credit_invalides'): ?>
-            <div class="error-message" onclick="this.style.display='none';">
-                Les données de crédit sont invalides. Veuillez vérifier le montant. (Cliquez pour fermer)
-            </div>
-        <?php endif; ?>
-        <?php if (isset($_GET['error']) && $_GET['error'] === 'donnees_debit_invalides'): ?>
-            <div class="error-message" onclick="this.style.display='none';">
-                Les données de débit sont invalides. Veuillez vérifier le montant. (Cliquez pour fermer)
-            </div>
-        <?php endif; ?>
-        <?php if (isset($_GET['error']) && $_GET['error'] === 'donnees_transfert_invalides'): ?>
-            <div class="error-message" onclick="this.style.display='none';">
-                Les données de transfert sont invalides. Veuillez vérifier les comptes et le montant. (Cliquez pour fermer)
-            </div>
-        <?php endif; ?>
-        <?php if (isset($_GET['success']) && $_GET['success'] === 'transfert_effectue'): ?>
+        <?php elseif (isset($_GET['success']) && isset($messages[$_GET['success']])): ?>
             <div class="success-message" onclick="this.style.display='none';">
-                Le transfert a été effectué avec succès. (Cliquez pour fermer)
+                <?= htmlspecialchars($messages[$_GET['success']]) ?> (Cliquez pour fermer)
             </div>
         <?php endif; ?>
-        <?php if (isset($_GET['success']) && $_GET['success'] === 'credit_effectue'): ?>
-            <div class="success-message" onclick="this.style.display='none';">
-                Le crédit a été effectué avec succès. (Cliquez pour fermer)
-            </div>
-        <?php endif; ?>
-        <?php if (isset($_GET['success']) && $_GET['success'] === 'debit_effectue'): ?>
-            <div class="success-message" onclick="this.style.display='none';">
-                Le débit a été effectué avec succès. (Cliquez pour fermer)
-            </div>
-        <?php endif; ?>
-        <?php if (isset($_GET['success']) && $_GET['success'] === 'compte_modifie'): ?>
-            <div class="success-message" onclick="this.style.display='none';">
-                Le compte a été modifié avec succès. (Cliquez pour fermer)
+
+        <?php if (isset($_SESSION['user']['prenom'])): ?>
+            <div class="welcome-message">
+                Bonjour <?= htmlspecialchars($_SESSION['user']['prenom']); ?> !
             </div>
         <?php endif; ?>
 
@@ -98,9 +62,9 @@
                     <tbody>
                         <?php foreach ($comptes as $compte): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($compte['nom']); ?></td>
-                                <td><?php echo htmlspecialchars($compte['RIB']); ?></td>
-                                <td><?php echo htmlspecialchars($compte['solde']);?></td>
+                                <td><?= htmlspecialchars($compte['nom']); ?></td>
+                                <td><?= htmlspecialchars($compte['RIB']); ?></td>
+                                <td><?= htmlspecialchars($compte['solde']); ?> €</td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -127,13 +91,13 @@
                     <tbody>
                         <?php foreach ($dernieresTransactions as $transaction): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($transaction['date_transaction']); ?></td>
-                                <td><?php echo htmlspecialchars($transaction['nom_compte']); ?></td>
-                                <td style="color: <?php echo $transaction['montant'] >= 0 ? 'green' : 'red'; ?>">
-                                    <?php echo htmlspecialchars($transaction['montant']); ?> €
+                                <td><?= htmlspecialchars($transaction['date_transaction']); ?></td>
+                                <td><?= htmlspecialchars($transaction['nom_compte']); ?></td>
+                                <td class="<?= $transaction['montant'] >= 0 ? 'positive' : 'negative' ?>">
+                                    <?= htmlspecialchars($transaction['montant']); ?> €
                                 </td>
-                                <td><?php echo htmlspecialchars($transaction['type']); ?></td>
-                                <td><?php echo htmlspecialchars($transaction['description']); ?></td>
+                                <td><?= htmlspecialchars($transaction['type']); ?></td>
+                                <td><?= htmlspecialchars($transaction['description']); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -149,6 +113,14 @@
                 <a href="/adminpages/index.php?action=afficher_formulaire_credit" class="button primary">Créditer un Compte</a>
                 <a href="/adminpages/index.php?action=afficher_formulaire_debit" class="button secondary">Débiter un Compte</a>
                 <a href="/adminpages/index.php?action=afficher_formulaire_transfert" class="button">Effectuer un Transfert</a>
+            </div>
+        </div>
+
+        <div class="gestion-bde-utilisateurs-section">
+            <h2>Gestion des Utilisateurs BDE</h2>
+            <div class="button-container">
+                <a href="/adminpages/index.php?action=gestion_bde_utilisateurs" class="button primary">Gérer les Utilisateurs BDE</a>
+                <a href="/adminpages/index.php?action=afficher_formulaire_creation_utilisateur_admin" class="button primary">Ajouter un Utilisateur BDE</a>
             </div>
         </div>
 
